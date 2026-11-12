@@ -1,0 +1,1196 @@
+
+/* =====================================================
+   FILE: css/style.css
+   PROJECT: THE MYSTERY FISH GAME
+
+   PURPOSE:
+   This CSS file controls the design of all 9 HTML pages.
+
+   CONTENTS:
+   01. Global settings and colours
+   02. Ocean background and bubbles
+   03. Main layout and navigation
+   04. Cards, headings and text
+   05. Forms and input fields
+   06. Buttons and labels
+   07. Game rules and information boxes
+   08. Game screen and progress bar
+   09. Fish questions and answer options
+   10. Results, scores and statistics
+   11. Levels, profile and leaderboard
+   12. Mobile responsive design
+   ===================================================== */
+
+
+/* =====================================================
+   SECTION 01: GLOBAL SETTINGS AND COLOURS
+   ===================================================== */
+
+/* Include borders and padding in element dimensions */
+* {
+    box-sizing: border-box;
+}
+
+/* Main colour variables used throughout the game */
+:root {
+    --navy: #12355b;       /* Main text colour */
+    --blue: #1167d6;       /* Primary button colour */
+    --muted: #5f7a95;      /* Secondary text colour */
+    --soft: #f0f6fb;       /* Light background colour */
+    --green: #13805a;      /* Correct answer colour */
+    --red: #c8404f;        /* Wrong answer colour */
+}
+
+
+/* =====================================================
+   SECTION 02: OCEAN BACKGROUND AND ANIMATED BUBBLES
+   ===================================================== */
+
+/* Main background shared by all game pages */
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+    color: var(--navy);
+
+    background: url("../game%20images/background%20.png") center / cover fixed no-repeat;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND DECORATION: adjust the six soft bubbles and their animation here. */
+.bubbles i {
+    position: fixed;
+    border: 2px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    bottom: -55px;
+    background: rgba(210,255,255,.1);
+    box-shadow: inset 0 0 12px rgba(255,255,255,.18);
+    animation: rise 22s linear infinite;
+    pointer-events: none;
+}
+
+.bubbles i:nth-child(1) { left: 8%; animation-delay: -3s; }
+.bubbles i:nth-child(2) { left: 25%; width: 18px; height: 18px; animation-delay: -14s; }
+.bubbles i:nth-child(3) { left: 43%; width: 38px; height: 38px; animation-delay: -8s; }
+.bubbles i:nth-child(4) { left: 62%; width: 22px; height: 22px; animation-delay: -18s; }
+.bubbles i:nth-child(5) { left: 79%; width: 34px; height: 34px; animation-delay: -11s; }
+.bubbles i:nth-child(6) { left: 94%; width: 16px; height: 16px; animation-delay: -5s; }
+
+/* Move bubbles upward through the ocean background */
+@keyframes rise {
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+
+/* =====================================================
+   SECTION 03: MAIN LAYOUT AND NAVIGATION
+   ===================================================== */
+
+/* Main container used by all HTML pages */
+#app {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 24px 70px;
+}
+
+/* Footer displayed at the bottom of the screen */
+.foot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 12px;
+    text-align: center;
+
+    color: #fff;
+    font-size: .8rem;
+    background: rgba(5,57,107,.85);
+}
+
+/* Top navigation/header container */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #fff;
+    margin-bottom: 22px;
+}
+
+/* Game logo or brand name */
+.brand {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    font-weight: 900;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+/* Navigation links container */
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+/* Small text labels */
+.tag {
+    font-size: .9rem;
+}
+
+/* Small navigation buttons */
+.chip {
+    border: 0;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+
+    font: 700 .9rem inherit;
+    font-family: inherit;
+
+    padding: 9px 16px;
+    border-radius: 99px;
+    cursor: pointer;
+}
+
+/* Navigation button hover effect */
+.chip:hover {
+    background: rgba(255,255,255,.32);
+}
+
+
+/* =====================================================
+   SECTION 04: CARDS, HEADINGS AND TEXT
+   ===================================================== */
+
+/* White rounded cards used across the game */
+.card {
+    background: #fff;
+    border-radius: 26px;
+    padding: 26px 30px;
+
+    box-shadow: 0 18px 40px rgba(3,40,80,.28);
+}
+
+/* Display two cards in two columns */
+.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: center;
+}
+
+/* Align game panels at the top */
+.two.game {
+    align-items: start;
+}
+
+/* Narrow card for login and registration forms */
+.narrow {
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+/* Centre text */
+.c {
+    text-align: center;
+}
+
+/* Home page hero section */
+.hero {
+    text-align: center;
+    color: #fff;
+}
+
+/* Main home page heading */
+.hero h1 {
+    font-size: 3rem;
+    margin: 10px 0 6px;
+    line-height: 1.05;
+}
+
+/* Hero description */
+.hero p {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+/* Fish image or illustration on the home page */
+.herofish svg,
+.herofish img {
+    width: min(300px,70%);
+}
+
+/* Common heading style */
+h2 {
+    margin: 0 0 6px;
+    font-size: 1.7rem;
+    font-weight: 900;
+}
+
+/* Secondary text */
+.muted {
+    color: var(--muted);
+}
+
+/* Small text */
+.small {
+    font-size: .85rem;
+}
+
+/* Float element toward right side */
+.right {
+    float: right;
+}
+
+/* Text colour utility classes */
+.g {
+    color: var(--green);
+}
+
+.r {
+    color: var(--red);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.red {
+    color: var(--red);
+}
+
+/* General links */
+a {
+    color: var(--blue);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Centre links such as registration or login */
+.center {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+
+
+/* =====================================================
+   SECTION 05: FORMS AND INPUT FIELDS
+   ===================================================== */
+
+/* Container for each form input */
+.field {
+    position: relative;
+    margin: 12px 0;
+}
+
+/* Username, password and email input styling */
+input[type=text],
+input[type=password],
+input[type=email],
+input:not([type]) {
+    width: 100%;
+
+    padding: 14px 44px 14px 16px;
+    border: 1px solid #dbe8f2;
+    background: var(--soft);
+    border-radius: 14px;
+
+    font: 600 1rem inherit;
+    font-family: inherit;
+    color: var(--navy);
+}
+
+/* Password visibility eye icon */
+.eye {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Error messages for invalid input */
+.err {
+    color: var(--red);
+    font-weight: 700;
+
+    margin: 8px 0;
+    min-height: 1em;
+}
+
+
+/* =====================================================
+   SECTION 06: BUTTONS AND LABELS
+   ===================================================== */
+
+/* Common button design */
+.btn {
+    display: block;
+    width: 100%;
+
+    border: 0;
+    border-radius: 14px;
+
+    padding: 15px;
+    margin-top: 12px;
+
+    font: 800 1.05rem inherit;
+    font-family: inherit;
+
+    cursor: pointer;
+    transition: transform .1s;
+}
+
+/* Button moves upward when hovered */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Blue primary button */
+.btn.blue {
+    background: var(--blue);
+    color: #fff;
+
+    box-shadow: 0 6px 14px rgba(17,103,214,.35);
+}
+
+/* Yellow button */
+.btn.yellow {
+    background: #ffd45e;
+    color: #3b2d00;
+
+    box-shadow: 0 5px 0 #d9a91f;
+}
+
+/* Light secondary button */
+.btn.light {
+    background: var(--soft);
+    color: var(--blue);
+}
+
+/* Button row spacing */
+.btnrow {
+    margin-top: 8px;
+}
+
+/* Main menu actions */
+.menu-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.menu-actions .btn {
+    margin-top: 0;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+/* Small rounded labels */
+.pill {
+    display: inline-block;
+
+    background: #e7f4fa;
+    color: var(--blue);
+
+    font-weight: 800;
+    font-size: .75rem;
+
+    padding: 6px 12px;
+    border-radius: 99px;
+    vertical-align: middle;
+}
+
+/* Gold label for special information */
+.pill.gold {
+    background: #fff3c4;
+    color: #7a5a00;
+}
+
+
+/* =====================================================
+   SECTION 07: GAME RULES AND INFORMATION BOXES
+   ===================================================== */
+
+/* Game instructions list */
+.rules {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0;
+}
+
+/* Each instruction */
+.rules li {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px 0 10px 52px;
+    position: relative;
+}
+
+/* Decorative star beside game rules */
+.rules li::before {
+    content: "✦";
+
+    position: absolute;
+    left: 0;
+    top: 10px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px;
+    background: #e7f4fa;
+    color: var(--blue);
+
+    display: grid;
+    place-items: center;
+}
+
+/* Rule description text */
+.rules span {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* Light information box */
+.note {
+    background: var(--soft);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin: 14px 0;
+}
+
+/* Bold title in information box */
+.note b {
+    display: block;
+}
+
+/* Description and list text */
+.note span,
+.note li {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* Numbered instructions inside information box */
+.note ol {
+    margin: 6px 0 0;
+    padding-left: 20px;
+}
+
+/* Small centred information box */
+.note.small {
+    margin-top: 16px;
+    text-align: center;
+}
+
+/* Yellow information background */
+.yellowbox {
+    background: #ffd45e;
+}
+
+
+/* =====================================================
+   SECTION 08: GAME SCREEN AND PROGRESS BAR
+   ===================================================== */
+
+/* Game heads-up display: score, level and lives */
+.hud {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+
+    padding: 16px 26px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+/* Progress bar container */
+.prog {
+    flex: 1;
+    min-width: 160px;
+}
+
+/* Progress bar background */
+.prog i {
+    display: block;
+    height: 7px;
+    border-radius: 9px;
+
+    background: #dbe8f2;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+/* Filled progress bar */
+.prog u {
+    display: block;
+    height: 100%;
+    background: var(--blue);
+}
+
+/* Small score and lives labels */
+.stat small {
+    display: block;
+    color: var(--muted);
+    font-size: .7rem;
+}
+
+/* Score and lives values */
+.stat b {
+    font-size: 1.5rem;
+}
+
+/* Empty or inactive heart */
+.h {
+    color: #d4dfe9;
+}
+
+/* Active heart for remaining lives */
+.h.on {
+    color: var(--red);
+}
+
+/* Small label above a question */
+.eyebrow {
+    color: var(--blue);
+    font-weight: 800;
+    font-size: .8rem;
+}
+
+
+/* =====================================================
+   SECTION 09: FISH QUESTIONS AND ANSWER OPTIONS
+   ===================================================== */
+
+/* Fish illustration or image container */
+.stage {
+    background: #e7f4fa;
+    border-radius: 18px;
+
+    margin: 14px 0;
+    padding: 10px;
+
+    display: grid;
+    place-items: center;
+    min-height: 220px;
+}
+
+/* Normal fish image or illustration */
+.stage svg,
+.stage img {
+    height: 200px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Smaller illustration container */
+.stage.small {
+    min-height: 0;
+    background: none;
+}
+
+/* Smaller illustration size */
+.stage.small svg,
+.stage.small img {
+    height: 130px;
+}
+
+/* Fish API revival puzzle image container */
+.stage.api {
+    min-height: 0;
+    justify-content: start;
+    padding: 18px;
+}
+
+/* Fish API puzzle picture appearance */
+.stage.api img {
+    max-width: 100%;
+
+    border: 2px solid #234;
+    background: #fff;
+
+    image-rendering: auto;
+}
+
+/* Answer options in two columns */
+.opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Individual answer button */
+.opt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px;
+    border-radius: 14px;
+
+    border: 1px solid #dbe8f2;
+    background: var(--soft);
+
+    font: 800 1rem inherit;
+    font-family: inherit;
+    color: var(--navy);
+
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Answer button hover effect */
+.opt:not(:disabled):hover {
+    border-color: var(--blue);
+    background: #e5f0fc;
+}
+
+/* Answer letter or number box */
+.opt i {
+    font-style: normal;
+    background: #fff;
+
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+
+    display: grid;
+    place-items: center;
+    font-size: .8rem;
+}
+
+/* Text or icon aligned to right side of answer */
+.opt span {
+    margin-left: auto;
+}
+
+/* Correct answer appearance */
+.opt.ok {
+    border-color: var(--green);
+    background: #e6f6ee;
+    color: var(--green);
+}
+
+/* Wrong answer appearance */
+.opt.bad {
+    border-color: var(--red);
+    background: #fdeaec;
+    color: var(--red);
+}
+
+/* Disabled answer button */
+.opt:disabled {
+    cursor: default;
+}
+
+
+/* =====================================================
+   SECTION 10: RESULTS, SCORES AND STATISTICS
+   ===================================================== */
+
+/* Correct/wrong answer labels container */
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* Result label appearance */
+.tags .tag,
+.res .tag {
+    padding: 7px 13px;
+    border-radius: 99px;
+
+    font-weight: 800;
+    font-size: .8rem;
+}
+
+/* Correct result label */
+.tag.ok {
+    background: #e1f5ea;
+    color: var(--green);
+}
+
+/* Incorrect result label */
+.tag.bad {
+    background: #fde4e7;
+    color: var(--red);
+}
+
+/* Game result container */
+.res {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Circular result icon */
+.icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+    font-size: 1.9rem;
+}
+
+/* Successful result icon */
+.res.good .icon {
+    background: #e1f5ea;
+    color: var(--green);
+}
+
+/* Failed result icon */
+.res.badr .icon {
+    background: #fde4e7;
+    color: var(--red);
+}
+
+/* Radio button group for Fish API revival answers */
+.radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 6px 0;
+}
+
+/* Each radio option label */
+.radios label {
+    cursor: pointer;
+}
+
+/* Hide default radio circle */
+.radios input {
+    display: none;
+}
+
+/* Rounded radio answer button */
+.radios span {
+    display: block;
+    min-width: 90px;
+
+    text-align: center;
+    padding: 11px 20px;
+    border-radius: 99px;
+
+    background: var(--soft);
+    border: 2px solid #dbe8f2;
+    font-weight: 800;
+}
+
+/* Highlight selected Fish API answer */
+.radios input:checked + span {
+    border-color: var(--blue);
+    background: #e5f0fc;
+    color: var(--blue);
+}
+
+/* List with green checkmarks */
+.ticks {
+    list-style: none;
+    padding: 0;
+}
+
+/* Insert green checkmark before text */
+.ticks li::before {
+    content: "✓ ";
+    color: var(--green);
+    font-weight: 900;
+}
+
+/* Spacing between checked items */
+.ticks li {
+    margin: 6px 0;
+}
+
+/* Large score summary box */
+.big {
+    background: #e7f4fa;
+    border-radius: 18px;
+    padding: 16px;
+    margin: 14px 0;
+    text-align: center;
+}
+
+/* Score summary label */
+.big small {
+    color: var(--muted);
+    font-weight: 800;
+}
+
+/* Large final score */
+.big b {
+    display: block;
+    font-size: 4rem;
+    line-height: 1.1;
+    color: var(--blue);
+}
+
+/* Score description */
+.big span {
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+/* Multiple result statistics in a row */
+.cols {
+    display: flex;
+    justify-content: space-around;
+    margin: 14px 0;
+    text-align: center;
+}
+
+/* Statistic value */
+.cols b {
+    display: block;
+    font-size: 1.3rem;
+}
+
+/* Statistic label */
+.cols small {
+    color: var(--muted);
+}
+
+/* Inactive star rating */
+.starsrow {
+    font-size: 3rem;
+    color: #cfdce8;
+}
+
+/* Active star rating */
+.starsrow .on {
+    color: #ffc933;
+}
+
+
+/* =====================================================
+   SECTION 11: LEVELS, PROFILE AND LEADERBOARD
+   ===================================================== */
+
+/* Level selection card container */
+.lvls {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+/* Individual level selection button */
+.lvl {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 18px;
+    border: 0;
+    border-radius: 22px;
+
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--navy);
+}
+
+/* Level title */
+.lvl b {
+    display: block;
+    font-size: 1.7rem;
+}
+
+/* Level description */
+.lvl small {
+    display: block;
+    font-weight: 700;
+}
+
+/* Level star icon */
+.lvl em {
+    font-style: normal;
+    color: #e8a700;
+}
+
+/* Locked or unlocked level status */
+.lvl .state {
+    margin-left: auto;
+    font-size: .75rem;
+    font-weight: 900;
+}
+
+/* Level number box */
+.lvl .num {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 16px;
+    background: rgba(255,255,255,.6);
+
+    display: grid;
+    place-items: center;
+
+    font-size: 1.7rem;
+    font-weight: 900;
+}
+
+/* Level 1 green background */
+.l1 {
+    background: #c9f2d9;
+}
+
+/* Level 2 yellow background */
+.l2 {
+    background: #ffd95e;
+}
+
+/* Level 3 purple background */
+.l3 {
+    background: #ddd0fa;
+}
+
+/* Locked level appearance */
+.lvl:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* Available level hover effect */
+.lvl:not(:disabled):hover {
+    transform: translateY(-3px);
+}
+
+/* Circular player avatar */
+.av {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 8px;
+
+    border-radius: 50%;
+    background: #e7f4fa;
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+}
+
+/* Avatar SVG illustration */
+.av svg {
+    width: 130%;
+}
+
+/* Three profile statistics side by side */
+.stats3 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin: 14px 0;
+}
+
+/* Individual profile statistic box */
+.stats3 div {
+    background: var(--soft);
+    border-radius: 16px;
+    padding: 14px 4px;
+}
+
+/* Profile statistic value */
+.stats3 b {
+    display: block;
+    font-size: 1.8rem;
+}
+
+/* Profile statistic label */
+.stats3 small {
+    color: var(--muted);
+}
+
+/* Leaderboard table */
+.board {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+/* Leaderboard table cells */
+.board td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #edf3f8;
+    font-weight: 800;
+}
+
+/* Score displayed at the right side */
+.board td:last-child {
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+/* Player rank displayed at the left */
+.board td:first-child {
+    color: var(--muted);
+    width: 36px;
+}
+
+/* Highlight the current player */
+.board tr.me {
+    background: #fff4c9;
+}
+
+/* Small text inside leaderboard */
+.board small {
+    display: block;
+    color: var(--green);
+    font-size: .65rem;
+}
+
+
+/* =====================================================
+   SECTION 12: MOBILE RESPONSIVE DESIGN
+   ===================================================== */
+
+/* Apply these rules on screens 860px wide or smaller */
+@media (max-width: 860px) {
+
+    /* Change two-column layout to one column */
+    .two {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce heading size on mobile */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Show game answers in a single column */
+    .opts {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce space between score and lives */
+    .hud {
+        gap: 16px;
+    }
+
+    /* Reduce main container padding */
+    #app {
+        padding: 14px 14px 70px;
+    }
+
+    /* Reduce card padding on small screens */
+    .card {
+        padding: 20px;
+    }
+}
+
+/* ================= END OF STYLE.CSS ================= */
+
+
+/* Links styled as full-width buttons are used for page navigation. */
+a.btn { text-align:center; text-decoration:none; }
+a.chip { display:inline-block; text-decoration:none; }
+a.brand { color:#fff; text-decoration:none; }
+
+/* Hide an element fully when the JavaScript sets the hidden attribute. */
+[hidden] { display:none !important; }
+
+/* Helpful screen reader labels without changing the visual design. */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Make keyboard navigation visible. */
+button:focus-visible, a:focus-visible, input:focus-visible { outline:3px solid #ffc933; outline-offset:3px; }
+
+/* Keep status text readable on phones. */
+#lives-value { color:#c8404f; letter-spacing:2px; }
+@media (max-width:560px) {
+  .top { gap:10px; flex-wrap:wrap; }
+  .top nav { gap:6px; flex-wrap:wrap; }
+  .top .brand { font-size:1rem; }
+  .top .chip { font-size:.75rem; padding:8px 10px; }
+  .hud { gap:13px; }
+  .card { border-radius:18px; }
+  .hero h1 { font-size:2rem; }
+  .menu-actions { grid-template-columns:1fr; }
+}
+/* ================================================================
+   OCEAN ARCADE REDESIGN
+   Only presentation is changed. Keep HTML IDs and gameplay JS intact.
+   ================================================================ */
+:root{--navy:#e9fbff;--blue:#ffb52e;--muted:#b9e1e7;--soft:#143c58;--green:#28e7a8;--red:#ff7187}
+body{color:#edfdff;background:linear-gradient(180deg,rgba(0,28,59,.32),rgba(0,10,30,.7)),url('../game%20images/background%20.png') center / cover fixed no-repeat;font-family:'Nunito','Segoe UI',sans-serif}
+body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 12%,rgba(63,234,239,.14),transparent 55%)}
+#app{max-width:1200px;padding:22px 30px 88px}
+.top{padding:10px 14px 14px;margin:0 0 18px;border-bottom:1px solid rgba(203,248,255,.18)}
+.brand{font-size:1.15rem;letter-spacing:.035em;text-shadow:0 2px 12px #003651}
+.chip{background:rgba(3,37,67,.65);border:1px solid rgba(160,235,255,.24);box-shadow:inset 0 1px rgba(255,255,255,.09)}
+.chip:hover{background:#155578}
+.foot{position:static;background:none;padding:4px 15px 20px;letter-spacing:.24em;font-size:.64rem;color:#a9e7ed;opacity:.78}
+.card{background:linear-gradient(150deg,rgba(8,52,77,.95),rgba(5,26,52,.96));border:2px solid rgba(96,226,232,.29);box-shadow:0 16px 45px rgba(0,12,35,.47),inset 0 1px rgba(207,255,255,.14);border-radius:26px;color:#effdff}
+.card h2{color:#fff;text-shadow:0 3px 14px rgba(12,170,202,.3)}
+.muted{color:#b7d8e5}.tag{color:#defbfa}.pill{background:linear-gradient(90deg,#056b84,#0c425c);color:#defaff;border:1px solid #36a5ae;border-radius:50px;padding:8px 13px;font-size:.75rem;font-weight:900;letter-spacing:.065em}
+.btn{border:2px solid rgba(255,255,255,.18);font-weight:900;border-radius:15px;letter-spacing:.045em;box-shadow:0 5px 0 rgba(2,16,32,.55);transition:transform .16s,filter .16s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.09)}
+.btn.blue,.btn.yellow,.primary-play{color:#092746!important;background:linear-gradient(180deg,#ffe77e,#ffae20)!important;border-color:#ffe28b!important}
+.btn.light{background:rgba(13,91,120,.65);color:#e8f8ff;border-color:#3d8da9}
+/* Splash screen: a game lobby rather than a page of instructions */
+.lobby{min-height:660px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;position:relative;padding:35px 20px 12px;overflow:hidden}
+.lobby:before{content:'';position:absolute;width:min(720px,96%);height:590px;top:0;border-radius:50%;background:radial-gradient(ellipse,rgba(0,183,202,.25),transparent 69%);pointer-events:none}
+.lobby-copy{z-index:1}.game-kicker{color:#b1ffdb;font-size:.9rem;letter-spacing:.32em;font-weight:900}
+.lobby h1{font-size:clamp(3.4rem,8vw,6.5rem);line-height:.9;margin:15px 0 5px;font-weight:900;letter-spacing:-.06em;text-shadow:0 7px 0 #06476b,0 15px 30px rgba(0,13,37,.75)}
+.lobby h1 span{color:#ffd95a}.lobby-copy>p{font-size:1.18rem;font-weight:800;letter-spacing:.06em;margin:18px 0 2px;color:#dbf9ff}
+.lobby-art{height:235px;margin:-5px auto -5px;display:grid;place-items:center;filter:drop-shadow(0 20px 18px #001b3d)}
+.lobby-art img{width:min(300px,60vw);max-height:230px;object-fit:contain;animation:fishfloat 4s ease-in-out infinite}
+@keyframes fishfloat{50%{transform:translateY(-12px) rotate(-3deg)}}
+.primary-play{display:inline-flex!important;align-items:center;justify-content:center;gap:16px;min-width:310px;padding:19px 30px!important;font-size:1.25rem!important;border-radius:50px!important;box-shadow:0 8px 0 #a4580c,0 16px 35px #00152b!important}
+.primary-play span{background:#0c4664;color:#fff;border-radius:50%;width:31px;height:31px;display:grid;place-items:center;font-size:1rem}
+.lobby-quick{margin:26px auto 0;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.lobby-quick a,.lobby-quick button{color:#d6f9ff;background:rgba(1,31,57,.7);border:1px solid #3c94a8;border-radius:16px;padding:12px 20px;font:800 .92rem Nunito,sans-serif;cursor:pointer;text-decoration:none}
+.lobby-quick a:hover,.lobby-quick button:hover{background:#155474}
+.lobby-bottom{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.lobby-bottom span{padding:10px 20px;border-radius:50px;background:rgba(1,23,44,.73);border:1px solid rgba(100,229,234,.35);font-size:.77rem;font-weight:900;letter-spacing:.08em}
+/* In-game heads up display, no dashboard card */
+.hud{display:flex;align-items:center;justify-content:space-between;gap:13px;background:rgba(0,21,43,.82);border:2px solid rgba(103,215,232,.28);border-radius:20px;padding:14px 22px;margin-bottom:14px;box-shadow:0 10px 20px #00192c66}
+.hud .pill{white-space:nowrap}.prog{flex:1;min-width:120px;max-width:240px}.prog b{font-size:.85rem;color:#d8fdff}.prog i{background:#123f5a;height:9px;border:1px solid #2e7089}.prog u{background:linear-gradient(90deg,#30d7ba,#ffe067);transition:width .3s}
+.stat{text-align:center;min-width:64px}.stat small{color:#a9d7e4;font-size:.64rem;font-weight:900;letter-spacing:.09em}.stat b{color:#fff;font-size:1.5rem}.stat #score-value{color:#ffe36e}.stat #time-left{color:#8ceaff}.stat #time-left.red{color:#ff7f87}
+#lives-value{color:#ff7e8d!important;font-size:1.45rem!important;white-space:nowrap}
+.game-arena{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.8fr);align-items:start;gap:17px}
+.game-arena .play-board{padding:22px 25px 25px;text-align:center;border-color:rgba(66,223,228,.45)}
+.play-board .eyebrow{font-size:.76rem;letter-spacing:.2em;color:#9ff9ee}
+.play-board h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:.025em;margin:8px 0 14px}
+.stage{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#1285a0,#0c4a75 68%,#062a52);border:2px solid rgba(116,242,240,.35);border-radius:22px;min-height:260px;margin:12px 0 20px;box-shadow:inset 0 0 35px rgba(2,17,44,.4)}
+.stage:after{content:'✧   ·   °   ·   ✧';position:absolute;bottom:10px;left:0;right:0;color:#8be7f0;opacity:.4;pointer-events:none}
+.stage img,.stage svg{max-height:245px;height:235px;object-fit:contain;filter:drop-shadow(0 9px 8px #00233c)}
+.opts{gap:12px}.opt{padding:17px 15px;border-radius:16px;background:linear-gradient(180deg,#0d5274,#083957);border:2px solid #2d8eae;color:white;font:900 1.01rem Nunito,sans-serif;transition:transform .14s,background .14s;box-shadow:0 4px 0 #031f3d}
+.opt i{background:#0e3049;color:#aeeff5;border:1px solid #50a4c2;border-radius:10px;min-width:34px;height:34px;font-weight:900}
+.opt:not(:disabled):hover{transform:translateY(-3px);background:#126b8e;border-color:#ffe377}
+.opt.ok{background:#0e6b56;color:#c3ffe7;border-color:#23e1a4}.opt.bad{background:#75344a;color:#ffd7db;border-color:#ff7e90}.opt:disabled{opacity:1}
+.side{padding:21px 23px!important}.side h2{font-size:1.45rem;margin:18px 0 12px}.side .note{background:rgba(0,84,104,.42);border:1px solid rgba(88,232,216,.32);border-radius:16px;padding:13px 17px;color:#e6fbff;margin:15px 0}.side .note b{color:#ffdf7c}.side .note ol{padding-left:20px;line-height:1.65}.side .note li{padding:5px 0}.side .muted{line-height:1.6}.side .btn{display:block;width:100%;margin-top:12px}.side .tags{display:none}
+.res{margin-bottom:12px}.res.good .icon{color:#35f5b3}.res.badr .icon{color:#ff8e94}
+/* Reef select resembles game map */
+.reef-select{max-width:760px!important;text-align:center;padding:36px!important}.reef-select h2{font-size:2rem;letter-spacing:.06em}.reef-select>.muted{margin:14px auto 28px;max-width:450px}.lvls{display:grid;gap:15px}.lvl{background:linear-gradient(110deg,#0a3d63,#10698a)!important;border:2px solid #3ca9bc!important;border-radius:22px!important;color:#eaffff!important;text-align:left!important;box-shadow:0 5px 0 #021a38!important}.lvl:not(:disabled):hover{background:linear-gradient(110deg,#0b5875,#178ca1)!important;transform:translateY(-3px)}.lvl:disabled{filter:saturate(.45);opacity:.68}.lvl .num{color:#fff;background:#157d9f!important;border:1px solid #60cad5!important}.lvl b{color:#fff}.lvl small{color:#addde9}.lvl .state{color:#ffeb91!important}.lvl em{color:#ffe47a}
+/* Login, profiles, results, scoreboard */
+.form{max-width:480px;width:100%;margin:auto}.hero h1{font-size:clamp(2.7rem,5vw,4.7rem);text-shadow:0 5px 0 #075476,0 15px 30px #001d38}.hero img{filter:drop-shadow(0 15px 17px #001f3e)}
+.form input{background:#e8f7f8;color:#083b55;border:2px solid #7cc4cc;border-radius:14px}.form .muted a{color:#ffde70;font-weight:900}.form .eye{color:#184961}
+.narrow:not(.reef-select){max-width:650px}.big{background:rgba(12,87,112,.44);border-radius:22px}.big b{color:#ffde71}.stats3{background:rgba(7,70,91,.45);border-radius:18px;padding:15px}.stats3 b,.cols b{color:#ffdc72}.board{color:#e5fdff}.board td{border-color:#35728b}.board tr.me{background:rgba(34,166,157,.32)}.note{background:rgba(14,91,115,.55);color:#ebfcff;border:1px solid rgba(93,211,223,.3)}.note b{color:#ffe481}.yellowbox{background:rgba(20,103,113,.5)!important;color:#fff!important}
+/* Rescue remains the SAME Fish API challenge with a game presentation */
+.rescue-arena .play-board h2{color:#ffdf78}.rescue-arena .stage.api{min-height:220px}.rescue-arena .stage.api img{height:auto;max-height:320px;background:#fff;border-radius:12px;padding:8px}.rescue-icon{font-size:5.5rem;color:#ff7288;text-align:center;text-shadow:0 0 32px #f43574;margin:32px auto}.radios{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.radios span{background:#0b5275;border-color:#3185ae;color:white;border-radius:13px;font-weight:900;padding:14px}.radios input:checked+span{background:#1e9e89;color:#fff}.rescue-arena .rescue-side p{line-height:1.7;color:#c5e7ed}
+@media(max-width:850px){.game-arena{grid-template-columns:1fr}.lobby{min-height:620px}.hud{justify-content:center}.prog{order:3;min-width:55%;max-width:none}.game-arena .play-board{padding:18px}.side h2{margin-top:8px}.rescue-arena .rescue-side{order:-1}.rescue-icon{display:none}}
+@media(max-width:560px){#app{padding:12px 13px 40px}.top{padding:8px 2px 13px}.lobby{padding:40px 2px 10px;min-height:580px}.lobby h1{font-size:3.5rem}.game-kicker{font-size:.67rem}.lobby-art{height:200px}.lobby-art img{max-height:195px}.primary-play{min-width:260px;font-size:1rem!important}.lobby-quick{gap:8px}.lobby-quick a,.lobby-quick button{padding:10px 12px;font-size:.8rem}.lobby-bottom{gap:7px}.lobby-bottom span{padding:8px 10px;font-size:.67rem}.hud{padding:12px 10px;gap:10px}.hud .pill{font-size:.63rem;padding:7px 9px}.stat{min-width:52px}.stat b{font-size:1.22rem}.prog{min-width:90%}.game-arena .play-board h2{font-size:1.35rem}.stage{min-height:195px}.stage img,.stage svg{height:185px}.opts{grid-template-columns:1fr}.opt{padding:11px 14px}.reef-select{padding:22px 13px!important}.reef-select h2{font-size:1.4rem}.radios{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.lobby-art img{animation:none}.bubbles i{animation:none}}

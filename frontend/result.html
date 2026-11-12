@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Result | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- RESULT SCREEN: Both victory and game over use this HTML page. -->
+      <div class="two">
+        <section class="hero"><div class="herofish" data-hero-fish></div><h1 id="result-heading">Your results</h1><p id="result-subtitle">The ocean still has mysteries waiting for you.</p></section>
+        <section class="card c"><div id="result-stars" class="starsrow" aria-label="Stars earned"></div>
+          <h2 id="result-title">Your dive recap</h2>
+          <div class="big"><small>FINAL SCORE</small><b id="final-score">0</b><span id="final-detail">0 correct answers</span></div>
+          <div class="cols"><div><b id="result-level">Level 1</b><small>Level</small></div><div><b id="result-question">1/5</b><small>Questions reached</small></div></div>
+          <div id="result-actions"></div>
+          <a class="btn light" href="levels.html">Select Level</a><a class="btn light" href="menu.html">Main Menu</a>
+        </section>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/events.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/fishData.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/gameState.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/result.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player Profile | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- PROFILE: The values are loaded from the backend API. -->
+      <section class="card narrow c">
+        <div class="av" data-hero-fish></div><h2 id="profile-name">Player</h2>
+        <span class="pill" id="profile-level">LEVEL 1</span><p class="muted" id="profile-email"></p>
+        <div class="stats3">
+          <div><b id="profile-score">0</b><small>High Score</small></div>
+          <div><b id="profile-games">0</b><small>Games Played</small></div>
+          <div><b id="profile-stars">0</b><small>Stars</small></div>
+        </div>
+        <div class="note"><b>Your shoal is growing!</b><span>Keep playing to discover more fish.</span></div>
+        <a class="btn light" href="leaderboard.html">Leaderboard</a>
+        <button type="button" class="btn light" id="header-logout">Log out</button>
+      </section>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/user.js"></script>
+  <script src="js/fishData.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/profile.js"></script>
+</body>
+</html>

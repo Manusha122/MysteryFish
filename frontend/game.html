@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess the Fish | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- GAME SCREEN: IDs are updated by js/pages/game.js. -->
+      <section class="hud" aria-label="Scoreboard">
+        <span class="pill" id="level-number">LEVEL 1</span>
+        <div class="prog"><b id="question-progress">Question 1 of 5</b><i><u id="progress-fill"></u></i></div>
+        <div class="stat"><small>SCORE</small><b id="score-value">0</b></div>
+        <div class="stat"><small>LIVES</small><b id="lives-value">♥ ♥ ♥</b></div>
+        <div class="stat"><small>TIME LEFT</small><b id="time-left" class="blue">00:30</b></div>
+        <span class="pill" id="revival-badge">1 rescue</span>
+      </section>
+      <div class="game-arena">
+        <section class="card play-board">
+          <span class="eyebrow" id="question-label">NAME THAT FISH</span>
+          <h2>GUESS THE MYSTERY FISH!</h2>
+          <div class="stage" id="fish-picture" aria-label="Mystery fish picture"></div>
+          <!-- ANSWER BUTTONS: JavaScript adds options A, B, C, D here. -->
+          <div class="opts" id="answer-options"></div>
+        </section>
+        <aside class="card side" id="game-side">
+          <!-- Hints first, then the answer feedback and Next Question button. -->
+        </aside>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/events.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/fishData.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/gameState.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/game.js"></script>
+</body>
+</html>

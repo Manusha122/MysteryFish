@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- HEADER for login and registration (before signing in). -->
+  <header class="top">
+    <a class="brand" href="index.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <span class="tag">A little curiosity. A big ocean.</span>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- REGISTRATION SCREEN: The account is created through the backend API. -->
+      <div class="two">
+        <section class="hero"><div class="herofish"><img src="game%20images/menu%20fish.png" alt="Menu fish"></div><h1>The Mystery Fish</h1><p>Your next great discovery starts here.</p></section>
+        <form class="card form" id="register-form">
+          <h2>Join the adventure</h2><p class="muted">Create your player account and dive in.</p>
+          <div class="field"><label class="sr-only" for="username">Username</label><input id="username" placeholder="Username" autocomplete="username" required></div>
+          <div class="field"><label class="sr-only" for="email">Email address</label><input id="email" type="email" placeholder="Email address" autocomplete="email" required></div>
+          <div class="field"><label class="sr-only" for="password">Password</label><input id="password" type="password" placeholder="Password" autocomplete="new-password" minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" title="Use at least 8 characters, including an uppercase letter, a lowercase letter, and a number." aria-describedby="password-requirements" required><button type="button" class="eye" id="toggle-password" aria-label="Show password" aria-pressed="false">👁</button></div>
+          <small id="password-requirements" class="muted">At least 8 characters, with an uppercase letter, a lowercase letter, and a number.</small>
+          <div class="field"><label class="sr-only" for="confirm-password">Confirm password</label><input id="confirm-password" type="password" placeholder="Confirm password" autocomplete="new-password" required><button type="button" class="eye" id="toggle-confirm-password" aria-label="Show confirm password" aria-pressed="false">👁</button></div>
+          <p id="register-error" class="err" role="alert"></p><button type="submit" class="btn blue">→ Create account</button>
+          <p class="muted c">Already a player? <a href="index.html">Back to Login</a></p>
+        </form>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/user.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/register.js"></script>
+</body>
+</html>

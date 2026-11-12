@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rescue Mission | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- REVIVAL SCREEN: displays a real puzzle from the external Fish API. -->
+      <section class="hud"><span class="pill">🛟 RESCUE MISSION</span>
+        <div class="stat"><small>SCORE PRESERVED</small><b id="revival-score">0</b></div>
+        <div class="stat"><small>LIVES</small><b id="revival-lives">0/3</b></div>
+      </section>
+      <div class="game-arena rescue-arena">
+        <section class="card play-board"><h2 id="revival-title">Loading your puzzle…</h2>
+          <p class="muted" id="revival-description">The Fish API is preparing your one rescue chance.</p>
+          <div class="stage api" id="api-picture"></div>
+          <!-- FISH API CHOICES: JavaScript will add radio buttons below. -->
+          <form id="puzzle-form" hidden><div class="radios" id="puzzle-answers"></div>
+            <p id="puzzle-error" class="err" role="alert"></p>
+            <button class="btn blue" type="submit">▶ LOCK IN ANSWER</button></form>
+          <div id="revival-actions"><a class="btn light" href="result.html" id="skip-button">End Dive</a></div>
+        </section>
+        <aside class="card side rescue-side"><span class="pill">ONE LAST CHANCE</span><h2>Save your dive!</h2><p>Solve the fish-count challenge to get one heart back and continue your level.</p><div class="rescue-icon">♥</div></aside>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/events.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/fishData.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/gameState.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/fishApi.js"></script>
+  <script src="js/pages/revival.js"></script>
+</body>
+</html>

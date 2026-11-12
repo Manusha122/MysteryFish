@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- HEADER for login and registration (before signing in). -->
+  <header class="top">
+    <a class="brand" href="index.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <span class="tag">A little curiosity. A big ocean.</span>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- LOGIN SCREEN: The form IDs are used by js/pages/login.js. -->
+      <div class="two">
+        <section class="hero"><div class="herofish"><img src="game images/menu fish.png" alt="Menu fish"></div><h1>The Mystery Fish</h1>
+          <p>A whole ocean of discovery.<br><small>♥ 3 lives. Endless curiosity.</small></p></section>
+        <form class="card form" id="login-form">
+          <h2>Welcome Back!</h2><p class="muted">Ready to discover your next mystery fish?</p>
+          <div class="field"><label class="sr-only" for="login-id">Username or email</label><input id="login-id" placeholder="Username or email" autocomplete="username" required></div>
+          <div class="field"><label class="sr-only" for="login-password">Password</label><input id="login-password" type="password" placeholder="Password" autocomplete="current-password" required><button type="button" class="eye" id="toggle-password" aria-label="Show password">👁</button></div>
+          <p id="login-error" class="err" role="alert"></p>
+          <button class="btn blue" type="submit">→ Login</button>
+          <p class="muted c">New player? <a href="register.html">Sign Up</a></p>
+        </form>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/user.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/login.js"></script>
+</body>
+</html>

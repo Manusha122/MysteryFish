@@ -1,0 +1,9 @@
+MYSTERY FISH UI REDESIGN
+
+Open index.html to sign in, or menu.html after signing in.
+
+Changed: Ocean arcade splash, level selection, game HUD, fish stage, answers, hint panel, rescue scene, profile/login/result styling, and leaderboard appearance.
+Removed: Long on-screen instructions and sample leaderboard opponents.
+Unchanged: Fish game questions, timing, scoring, 3 lives, levels, Fish API rescue logic, player login and local storage.
+
+The new design styles are appended to css/style.css in the section OCEAN ARCADE REDESIGN.

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Menu | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- PLAYER LOBBY: The original game actions still work. -->
+      <div class="lobby">
+        <div class="lobby-copy">
+          <span class="game-kicker">✦ UNDERWATER ADVENTURE ✦</span>
+          <h1>THE<br><span>MYSTERY FISH</span></h1>
+          <p>Who's hiding in the deep blue?</p>
+          <div class="lobby-art"><img src="game%20images/menu%20fish.png" alt="Colorful fish mascot"></div>
+          <a class="btn primary-play" href="levels.html"><span>▶</span> Start Adventure</a>
+          <div class="lobby-quick" aria-label="Main menu actions">
+            <a href="profile.html">♟ Profile</a>
+            <a href="leaderboard.html">🏆 Leaderboard</a>
+            <button id="header-logout" type="button">↪ Logout</button>
+          </div>
+        </div>
+        <aside class="lobby-bottom"><span>🐚 3 LIVES</span><span>★ 3 REEFS</span><span>⚡ 30 SEC</span><span>🛟 ONE RESCUE</span></aside>
+      </div>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/user.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/menu.js"></script>
+</body>
+</html>

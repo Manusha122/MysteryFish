@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select Level | The Mystery Fish</title>
+  <!-- STYLE FILE: edit css/style.css to change the colours, spacing and layout. -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- BACKGROUND DECORATION: six floating bubbles; style them in css/style.css. -->
+  <div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="app">
+  <!-- SHARED HEADER: same navigation design on every signed-in page. -->
+  <header class="top">
+    <a class="brand" href="menu.html"><span aria-hidden="true">🐠</span><span>The Mystery Fish</span></a>
+    <nav aria-label="Main navigation">
+      <a class="chip" href="menu.html">⌂ Main menu</a>
+      <a class="chip" href="profile.html" id="header-profile">☺ Profile</a>
+    </nav>
+  </header>
+    <!-- PAGE CONTENT: edit the HTML below to change this screen. -->
+    <main>
+      <!-- DIFFICULTY SELECTOR: The three buttons are filled by js/pages/levels.js. -->
+      <section class="card narrow reef-select">
+        <h2>CHOOSE YOUR DIFFICULTY <span class="pill" id="total-stars">★ 0/9</span></h2>
+        <p class="muted">Choose Easy, Medium, or Hard. Earn stars to unlock the next challenge.</p>
+        <div id="level-list" class="lvls"></div>
+        
+      </section>
+    </main>
+  </div>
+  <p class="foot">THE MYSTERY FISH • OCEAN ADVENTURE</p>
+  <!-- JAVASCRIPT: shared modules first, this page's controller LAST. -->
+  <script src="js/events.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/fishData.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/gameState.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pages/levels.js"></script>
+</body>
+</html>
